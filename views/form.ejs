@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Movies</title>
+</head>
+<body>
+    <form method="post" action="/cadastrar" enctype="multipart/form-data">
+        <label>Título do Filme</label>
+        <input type="text" name="title" id="title">
+
+        <label>Ano do Filme</label>
+        <input type="number" name="year" id="year">
+
+        <label>Poster do Filme</label>
+        <input type="file" name="poster" id="poster">
+
+        <label>Descrição do filme</label>
+        <input type="text" name="description" id="description">
+
+        <button type="submit">Cadastrar Filme</button>
+    </form>
+</body>
+</html>
