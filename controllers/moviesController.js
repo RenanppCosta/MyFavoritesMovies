@@ -43,15 +43,15 @@ const getById = async (req, res) =>{
     }
 }
 
-//const topMovie = async (req, res) =>{
-//    try {
-//        const movie = Movies.findOne().sort({_id:-1});
-//        return res.send(movie);
-//        //return res.render("index", {movie});
-//    } catch (err) {
-//        res.status(500).send({message: err.message});
-//    }
-//}
+const topMovie = async (req, res) =>{
+    try {
+        const movie = await Movies.findOne().sort({_id:-1});
+
+        return res.render("index", {movie});
+    } catch (err) {
+        res.status(500).send({message: err.message});
+    }
+}
    
 
 
@@ -60,5 +60,5 @@ module.exports = {
     createMovies,
     renderPostPage,
     getById,
-
+    topMovie
 }
