@@ -32,11 +32,33 @@ const createMovies = async (req, res) =>{
         }
     }
 
+const getById = async (req, res) =>{
+    try {
+        const { id } = req.params;
+
+        const movie = await Movies.findById(id);
+        return res.render("index", {movie});
+    } catch (err) {
+        res.status(500).send({message: err.message});
+    }
+}
+
+//const topMovie = async (req, res) =>{
+//    try {
+//        const movie = Movies.findOne().sort({_id:-1});
+//        return res.send(movie);
+//        //return res.render("index", {movie});
+//    } catch (err) {
+//        res.status(500).send({message: err.message});
+//    }
+//}
    
 
 
 module.exports = {
     getAllMovies,
     createMovies,
-    renderPostPage
+    renderPostPage,
+    getById,
+
 }
