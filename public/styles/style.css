@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap');
+
+*{
+    font-family: "Solway";
+}
+
+
+.dark-mode{
+    color: #fff;
+    background-color: #212529;
+}
+
+.navbar{
+    border-bottom: 1px solid black;
+}
+
+@media(min-width:1400px){
+    .logo img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .link-xxl{
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+
+    .link-xxl:hover{
+        font-weight: 500;
+    }
+}
