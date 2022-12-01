@@ -7,7 +7,6 @@ const upload = require("../middlewares/MulterMiddleware")
 
 router.get("/", moviesController.getAllMovies);
 router.get("/cadastrar", moviesController.renderPostPage);
-router.get("/top", moviesController.topMovie);
 router.post("/cadastrar", upload.single("poster"), moviesController.createMovies);
 router.get("/:id", moviesController.getById);
 

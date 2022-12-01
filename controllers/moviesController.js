@@ -6,8 +6,9 @@ const renderPostPage = (req,res)=>{
 
 const getAllMovies = async (req, res) =>{
     try {
-        const moviesList = await Movies.find();
-        return res.render("index", {moviesList});
+        const moviesList = await Movies.find().sort({_id:-1}).skip(1);
+        const movieTop = await Movies.findOne().sort({_id:-1});
+        return res.render("index", {moviesList, movieTop});
 
     } catch (err) {
         res.status(500).send({message: err.message});
@@ -43,22 +44,12 @@ const getById = async (req, res) =>{
     }
 }
 
-const topMovie = async (req, res) =>{
-    try {
-        const movie = await Movies.findOne().sort({_id:-1});
 
-        return res.render("index", {movie});
-    } catch (err) {
-        res.status(500).send({message: err.message});
-    }
-}
-   
 
 
 module.exports = {
     getAllMovies,
     createMovies,
     renderPostPage,
-    getById,
-    topMovie
+    getById
 }
