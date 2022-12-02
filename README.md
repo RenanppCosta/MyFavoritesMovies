@@ -38,7 +38,7 @@ Após instaladas as dependências, dê o comando seguinte para rodar a aplicaç�
       <a href="https://github.com/RenanppCosta">
         <img src="https://avatars.githubusercontent.com/u/94565505?v=4" width="100px;" alt="Foto de Renan Costa no GitHub"/><br>
         <sub>
-          <b>tatialveso</b>
+          <b>Renan Costa</b>
         </sub>
       </a>
     </td>
