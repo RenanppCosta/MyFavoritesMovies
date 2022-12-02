@@ -13,17 +13,39 @@ body{
     background-color: #212529;
 }
 
+.dark-mode .card:hover{
+    transition: all 0.4s ease-in-out;
+    box-shadow: 1px 4px 15px rgba(241, 239, 239, 0.795);
+    border: 1px solid #F5F5F5;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
 .navbar{
     border-bottom: 1px solid black;
 }
 
 .card{
     width: 65%;
+    cursor: pointer;
 }
 
 .card-md{
     display: none;
 }
+
+footer{
+    border-top: 1px solid black;
+}
+
+.card:hover{
+    transition: all 0.4s ease-in-out;
+    box-shadow: 1px 4px 15px rgba(38, 38, 38, 1);
+    border: 1px solid #F5F5F5;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
 
 @media(min-width:768px){
     
