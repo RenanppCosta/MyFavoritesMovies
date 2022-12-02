@@ -38,7 +38,23 @@ const getById = async (req, res) =>{
         const { id } = req.params;
 
         const movie = await Movies.findById(id);
+
+        if(!movie){
+            return res.status(404).send({message: err.message});
+        }
+
         return res.render("index", {movie});
+    } catch (err) {
+        res.status(500).send({message: err.message});
+    }
+}
+
+const deleteMovie = async (req,res) =>{
+    const {id} = req.params;
+
+    try {
+        
+        
     } catch (err) {
         res.status(500).send({message: err.message});
     }
@@ -51,5 +67,6 @@ module.exports = {
     getAllMovies,
     createMovies,
     renderPostPage,
-    getById
+    getById,
+    deleteMovie
 }
