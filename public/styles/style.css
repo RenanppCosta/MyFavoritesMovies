@@ -46,6 +46,29 @@ footer{
     background-color: #fff;
 }
 
+.button-delete{
+    border: none;
+    background-color: transparent;
+}
+
+#modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000080;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    color: white;
+}
+
+
 
 @media(min-width:768px){
     

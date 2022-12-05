@@ -8,7 +8,7 @@ const getAllMovies = async (req, res) =>{
     try {
         const moviesList = await Movies.find().sort({_id:-1}).skip(1);
         const movieTop = await Movies.findOne().sort({_id:-1});
-        return res.render("index", {moviesList, movieTop});
+        return res.render("index", {moviesList, movieTop, movieDelete:null, movieUpdate:null});
 
     } catch (err) {
         res.status(500).send({message: err.message});
@@ -25,7 +25,7 @@ const createMovies = async (req, res) =>{
 
         try {
         
-            movie = await Movies.create(movie);
+            await Movies.create(movie);
             return res.redirect("/");
     
         } catch (err) {
@@ -35,26 +35,43 @@ const createMovies = async (req, res) =>{
 
 const getById = async (req, res) =>{
     try {
-        const { id } = req.params;
+        const moviesList = await Movies.find().sort({_id:-1}).skip(1);
+        const movieTop = await Movies.findOne().sort({_id:-1});
 
-        const movie = await Movies.findById(id);
-
-        if(!movie){
-            return res.status(404).send({message: err.message});
+        if(req.params.method == "delete"){
+            const movieDelete = await Movies.findOne({_id: req.params.id});
+            res.render("index", {moviesList, movieTop, movieDelete, movieUpdate: null});
+        }else if(req.params.method == "update"){
+            const movieUpdate = await Movies.findOne({_id: req.params.id});
+            res.render("index", {moviesList, movieTop, movieDelete:null, movieUpdate} )
         }
 
-        return res.render("index", {movie});
+        
     } catch (err) {
         res.status(500).send({message: err.message});
     }
 }
 
 const deleteMovie = async (req,res) =>{
-    const {id} = req.params;
-
     try {
+        await Movies.deleteOne({_id: req.params.id});
+        res.redirect("/");
         
         
+    } catch (err) {
+        res.status(500).send({message: err.message});
+    }
+}
+
+const updateMovie = async (req,res) =>{
+    try {
+        const movie = {title: req.body.title,
+        year: req.body.year,
+        description: req.body.description,
+        posterMovie: req.file.filename}
+        
+        await Movies.updateOne({_id: req.params.id}, movie);
+        res.redirect("/");
     } catch (err) {
         res.status(500).send({message: err.message});
     }
@@ -68,5 +85,6 @@ module.exports = {
     createMovies,
     renderPostPage,
     getById,
-    deleteMovie
+    deleteMovie,
+    updateMovie
 }
