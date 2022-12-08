@@ -5,9 +5,13 @@ O Projeto é um CRUD de cadastro de filmes
 
 ## :books: Funcionalidades
 * <b>Cadastro de Filmes</b>: É possível cadastrar seus filmes favoritos na página /cadastrar
+* <b>Exclusão de Filmes</b>: É possível apagar cada filme através de um modal
+* <b>Atualização de Filmes</b>: É possível atualizar cada filme através de um modal
+* <b>Procura de Filmes</b>: É possível procurar filmes cadastrados numa barra de pesquisa
 * <b>Visualização de Filmes</b>: Os filmes cadastrados são renderizados em um card na página inicial
 * <b>Filme mais recente</b>: O último filme cadastrado é renderizado ganhando destaque na página inicial
 * <b>Dark Mode</b>: É possível escolher o tema Dark no projeto
+* <b>Responsividade</b>: Projeto responsivo para qualquer tipo de tela
 ## :wrench: Tecnologias utilizadas
 * NodeJS;
 * EJS;
@@ -23,13 +27,6 @@ Após instaladas as dependências, dê o comando seguinte para rodar a aplicaç�
 ```
 <npm run dev>
 ```
-
-## :soon: Implementação futura
-* O que será implementado na próxima sprint?
-
-* Update dos filmes
-* Delete dos filmes
-* Procurar por filme na barra de pesquisa
 
 ## :handshake: Colaboradores
 <table>
@@ -47,4 +44,4 @@ Após instaladas as dependências, dê o comando seguinte para rodar a aplicaç�
 
 ## :dart: Status do projeto
 
-O projeto está em desenvolvimento.
+O projeto está pronto.

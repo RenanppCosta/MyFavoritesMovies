@@ -10,7 +10,9 @@
     <title>My Favorites Movies</title>
 </head>
 <body>
-    <%- include("./partials/header") %> 
+    <%- include("./partials/header") %>
+
+    <%- include("./partials/findMovies") %>
 
     <section class="d-flex align-items-center flex-column p-4">
         <h1>Filme mais recente</h1>
@@ -43,9 +45,13 @@
         <% moviesList.forEach((movies)=>{ %>
             <div class="card d-flex d-md-none align-items-center justify-content-center border-light mb-3">
                 <img src="/upload/<%= movies.posterMovie %>" class="card-img-top img-fluid" width="150px" alt="<%= movies.title %>">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
                     <h5 class="card-title text-black"><%= movies.title %></h5>
                     <h6 class="card-subtitle mb-2 text-muted text-center"><%= movies.year %></h6>
+                    <div class="d-flex gap-2">
+                      <a href="/<%= movies._id %>/delete"><i class="text-black bi bi-x-lg"></i></a>
+                      <a href="/<%= movies._id %>/update"><i class="text-black bi bi-pencil-fill"></i></a>
+                    </div>
                 </div>
               </div>
         <% }) %>
@@ -61,7 +67,7 @@
                         <h5 class="card-title text-black"><%= movies.title %></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><%= movies.year %></h6>
                         <p class="card-text text-black"><%= movies.description %></p>
-                        <div class="buttons-card d-flex justify-content-end gap-2">
+                        <div class="d-flex justify-content-end gap-2">
                           <a href="/<%= movies._id %>/delete"><i class="text-black bi bi-x-lg"></i></a>
                           <a href="/<%= movies._id %>/update"><i class="text-black bi bi-pencil-fill"></i></a>
                         </div>
@@ -97,18 +103,19 @@
             <div id="modal_header" class="p-3 d-flex flex-column align-items-center justify-content-center">
               <h3 class="text-white">Você realmente deseja atualizar o filme: <%= movieUpdate.title %> ?</h3>
               <hr>
-              <form class="d-flex flex-column gap-2" action="/updateOne/<%= movieUpdate._id %>" method="post" enctype="multipart/form-data">
-                <label>Título do Filme</label>
-                <input type="text" name="title" id="title" value="<%= movieUpdate.title %>">
-        
-                <label>Ano do Filme</label>
-                <input type="number" name="year" id="year" value="<%= movieUpdate.year %>">
-        
-                <label>Poster do Filme</label>
-                <input type="file" name="poster" id="poster" value="<%= movieUpdate.posterMovie %>">
-        
-                <label>Descrição do filme</label>
-                <input type="text" name="description" id="description" value="<%= movieUpdate.description %>">
+              <form class="d-flex flex-column" action="/updateOne/<%= movieUpdate._id %>" method="post" enctype="multipart/form-data">
+                <label class="form-label">Título do Filme</label>
+                <input class="mb-2 form-control" type="text" name="title" id="title">
+
+                <label class="form-label">Ano do Filme</label>
+                <input class="mb-2 form-control" type="number" name="year" id="year">
+
+                <label class="form-label" for="poster">Poster do Filme</label>
+                <input class="mb-2 form-control" type="file" name="poster" id="poster">
+
+                <label class="form-label">Descrição do filme</label>
+                <input class="mb-2 form-control" type="text" name="description" id="description">
+
                 
               <div class="modal_buttons d-flex align-items-center justify-content-center p-3 gap-5">
                 <a class="text-white text-decoration-none btn btn-danger btn-lg" href="/">Não</a>
@@ -119,7 +126,7 @@
           </div>
         </section>
         <% } %>
-    
+        
     
    
 
